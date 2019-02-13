@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        文字切割效果
+    </title>
+</head>
+<body>
+    <div class="content" value="I ❤ CSS">I ❤ CSS</div>
+</body>
+</html>
+<style type="text/css">
+.content{
+    display: inline-block;
+    position: relative;
+    color: transparent;
+    font-size: 140px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.content::before,
+.content::after{
+    content: attr(value);
+    font-size: inherit;
+    font-weight: inherit;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    color: #CC3333;
+}
+
+.content::before{
+    top: 0;
+    /* 可以添加动画，实现动态效果 */
+    /* animation: action 5s 1s ease alternate infinite; */
+    transform: translateX(-18px);
+}
+
+.content::after{
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* @keyframes action{
+    0%{
+        transform: translateX(0px);
+    }
+    30%{
+        transform: translateX(-15px);
+    }
+    60%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(15px);
+    }
+} */
+</style>
